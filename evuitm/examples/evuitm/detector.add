@@ -1,0 +1,19 @@
+<additional>
+
+  <laneAreaDetector id="west_0" lane="persiaranpermai#2_0" pos="0" endPos="38" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="west_1" lane="persiaranpermai#1_0" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  
+  <laneAreaDetector id="east_0" lane="jalanpintar#1_0" pos="0" endPos="23" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="east_1" lane="jalanpintar#0_0" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  
+  <laneAreaDetector id="south_0" lane="persiarankayangansouth#3_0" pos="0" endPos="43" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="south_1" lane="persiarankayangansouth#3_1" pos="0" endPos="43" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="south_2" lane="persiarankayangansouth#2_0" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>    
+  <laneAreaDetector id="south_3" lane="persiarankayangansouth#2_1" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  
+  <laneAreaDetector id="north_0" lane="persiarankayangannorth#2_0" pos="0" endPos="33" freq="500" file="detector.out.xml" friendlyPos="1"/>  
+  <laneAreaDetector id="north_1" lane="persiarankayangannorth#2_1" pos="0" endPos="33" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="north_2" lane="persiarankayangannorth#1_0" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>
+  <laneAreaDetector id="north_3" lane="persiarankayangannorth#1_1" pos="0" freq="500" file="detector.out.xml" friendlyPos="1"/>
+    
+</additional>

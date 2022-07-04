@@ -33,10 +33,11 @@
 
 <!-- debug config -->
 <launch>
-    <copy file="osm.net.xml" />
-    <copy file="osm.passenger.trips.xml" />
-    <copy file="osm.poly.xml" />
-    <copy file="osm.view.xml" />
-    <copy file="osm.sumocfg" type="config" />
+    <copy file="evuitm.net.xml" />
+    <copy file="evuitm.passenger.trips.xml" />
+    <copy file="evuitm.poly.xml" />
+    <copy file="evuitm.view.xml" />
+    <copy file="detector.add" />    
+    <copy file="evuitm.sumocfg" type="config" />
 </launch>
 
