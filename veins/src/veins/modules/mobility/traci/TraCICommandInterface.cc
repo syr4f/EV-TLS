@@ -1161,6 +1161,11 @@ int TraCICommandInterface::LaneAreaDetector::getLastStepVehicleNumber()
     return traci->genericGetInt(CMD_GET_LANEAREA_VARIABLE, laneAreaDetectorId, LAST_STEP_VEHICLE_NUMBER, RESPONSE_GET_LANEAREA_VARIABLE);
 }
 
+int TraCICommandInterface::LaneAreaDetector::getJamLengthVehicle()
+{
+    return traci->genericGetInt(CMD_GET_LANEAREA_VARIABLE, laneAreaDetectorId, JAM_LENGTH_VEHICLE, LAST_STEP_VEHICLE_NUMBER);
+}
+
 std::list<std::string> TraCICommandInterface::getJunctionIds()
 {
     return genericGetStringList(CMD_GET_JUNCTION_VARIABLE, "", ID_LIST, RESPONSE_GET_JUNCTION_VARIABLE);

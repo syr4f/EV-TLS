@@ -391,6 +391,8 @@ public:
         }
 
         int getLastStepVehicleNumber();
+        
+        int getJamLengthVehicle();
 
     protected:
         TraCICommandInterface* traci;
