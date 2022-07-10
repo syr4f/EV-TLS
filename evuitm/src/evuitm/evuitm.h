@@ -31,9 +31,9 @@
 #define EVUITM_VERSION_ALPHA 0
 
 // Explicitly check Veins version number
-#if !(VEINS_VERSION_MAJOR == 5 && VEINS_VERSION_MINOR >= 2)
-#error Veins version 5.2 or compatible required
-#endif
+//#if !(VEINS_VERSION_MAJOR == 5 && VEINS_VERSION_MINOR >= 2)
+//#error Veins version 5.2 or compatible required
+//#endif
 
 // EVUITM_API macro. Allows us to use the same .h files for both building a .dll and linking against it
 #if defined(EVUITM_EXPORT)
