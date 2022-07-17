@@ -13,13 +13,29 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef EVUITM_RSU_H_
-#define EVUITM_RSU_H_
+#pragma once
 
-class RSU {
-public:
-    RSU();
-    virtual ~RSU();
+#include "evuitm/evuitm.h"
+
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+#include "veins/modules/mobility/traci/TraCICommandInterface.h"
+
+
+
+namespace evuitm {
+
+
+class EVUITM_API RSU : public veins::DemoBaseApplLayer {
+
+protected:
+
+    void onWSM(veins::BaseFrame1609_4* wsm) override;
+    std::string trafficLightId;
+
+private:
+    veins::TraCICommandInterface* traci;
+
+
 };
 
-#endif /* EVUITM_RSU_H_ */
+} // namespace veins

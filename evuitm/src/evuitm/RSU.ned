@@ -14,3 +14,10 @@
 // 
 
 package org.car2x.veins.subprojects.evuitm;
+import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+
+simple RSU extends DemoBaseApplLayer
+{
+    @class(evuitm::RSU);
+    @display("i=block/app2");
+}

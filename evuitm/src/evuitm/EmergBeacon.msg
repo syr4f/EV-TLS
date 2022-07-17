@@ -12,3 +12,22 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
+cplusplus {{
+#include "veins/base/utils/Coord.h"
+#include "veins/modules/messages/BaseFrame1609_4_m.h"
+#include "veins/base/utils/SimpleAddress.h"
+}}
+
+namespace evuitm;
+
+class veins::BaseFrame1609_4;
+class noncobject veins::Coord;
+class veins::LAddress::L2Type extends void;
+
+packet EmergBeacon extends BaseFrame1609_4 {
+    
+    string AtLanes;
+    veins::LAddress::L2Type senderAddress = -1;
+    int serial = 0;
+    
+}

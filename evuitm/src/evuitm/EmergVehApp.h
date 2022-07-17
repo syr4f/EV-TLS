@@ -13,13 +13,42 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef EVUITM_EMERGVEHAPP_H_
-#define EVUITM_EMERGVEHAPP_H_
+#pragma once
 
-class EmergVehApp {
+#include "evuitm/evuitm.h"
+
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+
+
+namespace evuitm {
+
+
+class EVUITM_API EmergVehApp : public veins::DemoBaseApplLayer {
 public:
-    EmergVehApp();
-    virtual ~EmergVehApp();
+    void initialize(int stage) override;
+    void finish() override;
+
+
+
+protected:
+    simtime_t lastDroveAt;
+    bool sentMessage;
+    int currentSubscribedServiceId;
+
+    void onWSM(veins::BaseFrame1609_4* wsm) override;
+    void onBSM(veins::DemoSafetyMessage* bsm) override;
+    void onWSA(veins::DemoServiceAdvertisment* wsa) override;
+
+    void handleSelfMsg(cMessage* msg) override;
+    void handlePositionUpdate(cObject* obj) override;
+
+protected:
+
+
+    std::string trafficLightId;
+    cMessage* initMsg;
+    cMessage* phaseMsg;
+
 };
 
-#endif /* EVUITM_EMERGVEHAPP_H_ */
+} // namespace veins
