@@ -99,8 +99,9 @@ void EmergVehApp::handlePositionUpdate(cObject* obj)
        EV << "Emergency Vehicle Send Beacon To The RSU\n";
        EmergBeacon* wsm = new EmergBeacon();
        populateWSM(wsm);
-       wsm->AtLanes = laneId;
+       wsm->setAtLanes(traciVehicle->getLaneId().c_str());
        sendDown(wsm);
+       EV << "RSU Receive Beacon From EVs\n";
 
     }
 

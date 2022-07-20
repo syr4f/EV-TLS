@@ -18,8 +18,6 @@ cplusplus {{
 #include "veins/base/utils/SimpleAddress.h"
 }}
 
-namespace evuitm;
-
 class veins::BaseFrame1609_4;
 class noncobject veins::Coord;
 class veins::LAddress::L2Type extends void;

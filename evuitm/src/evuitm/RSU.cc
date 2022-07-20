@@ -24,10 +24,11 @@ Define_Module(evuitm::RSU);
 
 void RSU::onWSM(BaseFrame1609_4* frame) {
 
-    findHost()->getDisplayString().setTagArg("i", 1, "green");
+    EV << "RSU Receive Beacon From EVs 1\n";
+
     if (EmergBeacon* wsm = check_and_cast<EmergBeacon*>(frame)){
         std:: string laneId = wsm->getAtLanes();
-        EV << "RSU Receive Beacon From EVs\n";
+        EV << "RSU Receive Beacon From EVs 2\n";
 
                      if(laneId == "persiarankayangannorth#2_0" || laneId == "persiarankayangannorth#2_1" || laneId == "persiarankayangannorth#1_1" || laneId == "persiarankayangannorth#1_0"){
                           //EVs at north lanes
