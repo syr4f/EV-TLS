@@ -17,6 +17,6 @@ import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
 
 simple TraciRSU extends DemoBaseApplLayer
 {
-    @class(evuitm::RSU);
+    @class(evuitm::TraciRSU);
     @display("i=block/app2");
 }
