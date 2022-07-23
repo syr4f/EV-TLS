@@ -12,6 +12,7 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
+package evuitm.examples.evuitm;
 
 import org.car2x.veins.nodes.RSU;
 import org.car2x.veins.nodes.Scenario;
