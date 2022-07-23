@@ -13,11 +13,5 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package org.car2x.veins.subprojects.evuitm;
-import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+#include "TraciTrafficLightApp.h"
 
-simple RSU extends DemoBaseApplLayer
-{
-    @class(evuitm::RSU);
-    @display("i=block/app2");
-}

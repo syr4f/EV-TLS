@@ -13,17 +13,10 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-cplusplus {{
-#include "veins/modules/messages/DemoSafetyMessage_m.h"
-}}
+#ifndef EVUITM_TRACITRAFFICLIGHTLOGIC_H_
+#define EVUITM_TRACITRAFFICLIGHTLOGIC_H_
 
-namespace veins;
-class DemoSafetyMessage;
+class TraciTrafficLightLogic {
+};
 
-//
-// Extension of DemoSafetyMessage to have hopCount for forwarding.
-// DemoSafetyMessage contains position and speed
-//
-packet EmergSafetyMessage extends DemoSafetyMessage {
-    int hopCount = 2;
-}
+#endif /* EVUITM_TRACITRAFFICLIGHTLOGIC_H_ */

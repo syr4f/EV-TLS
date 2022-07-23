@@ -13,32 +13,10 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#pragma once
+#ifndef EVUITM_TRACIEMERGAPP_H_
+#define EVUITM_TRACIEMERGAPP_H_
 
-#include "evuitm/evuitm.h"
-
-#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
-
-
-namespace evuitm {
-
-class EVUITM_API CarApp : public veins::DemoBaseApplLayer {
-public:
-    void initialize(int stage) override;
-    void finish() override;
-
-protected:
-    simtime_t lastDroveAt;
-    bool sentMessage;
-    int currentSubscribedServiceId;
-
-protected:
-    void onBSM(veins::DemoSafetyMessage* bsm) override;
-    void onWSM(veins::BaseFrame1609_4* wsm) override;
-    void onWSA(veins::DemoServiceAdvertisment* wsa) override;
-
-    void handleSelfMsg(cMessage* msg) override;
-    void handlePositionUpdate(cObject* obj) override;
+class TraciEmergApp {
 };
 
-} // namespace evuitm
+#endif /* EVUITM_TRACIEMERGAPP_H_ */

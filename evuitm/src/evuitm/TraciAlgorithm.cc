@@ -13,11 +13,5 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package org.car2x.veins.subprojects.evuitm;
-import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+#include "TraciAlgorithm.h"
 
-simple EmergVehApp extends DemoBaseApplLayer
-{
-    @class(evuitm::EmergVehApp);
-    @display("i=block/app2");
-}

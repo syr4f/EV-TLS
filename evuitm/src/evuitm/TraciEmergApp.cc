@@ -13,18 +13,5 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package org.car2x.veins.subprojects.evuitm;
-import org.car2x.veins.base.modules.ITrafficLightLogic;
+#include "TraciEmergApp.h"
 
-//
-// Queue discharge-based traffic light signal preemption logic module.
-//
-simple QdpTrafficLightLogic like ITrafficLightLogic
-{
-   	parameters:
-        @class(qdp_veins::QdpTrafficLightLogic);
-        @display("i=block/classifier");
-    gates:
-        inout interface;
-        inout applLayer;
-}

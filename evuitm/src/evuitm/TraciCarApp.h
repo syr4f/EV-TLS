@@ -13,29 +13,10 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#pragma once
+#ifndef EVUITM_TRACICARAPP_H_
+#define EVUITM_TRACICARAPP_H_
 
-#include "evuitm/evuitm.h"
-
-#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
-#include "veins/modules/mobility/traci/TraCICommandInterface.h"
-
-
-
-namespace evuitm {
-
-
-class EVUITM_API RSU : public veins::DemoBaseApplLayer {
-
-protected:
-
-    void onWSM(veins::BaseFrame1609_4* wsm) override;
-    std::string trafficLightId;
-
-private:
-    veins::TraCICommandInterface* traci;
-
-
+class TraciCarApp {
 };
 
-} // namespace veins
+#endif /* EVUITM_TRACICARAPP_H_ */

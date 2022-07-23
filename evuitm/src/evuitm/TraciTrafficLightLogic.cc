@@ -13,14 +13,5 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package org.car2x.veins.subprojects.qdp_veins;
+#include "TraciTrafficLightLogic.h"
 
-import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
-
-simple ForwarderAppl extends DemoBaseApplLayer
-{
-    parameters:
-        @class(qdp_veins::ForwarderAppl);
-        string appName = default("Forwarder Application");
-		sendBeacons = false;
-}

@@ -11,19 +11,4 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-// 
-
-package org.car2x.veins.subprojects.evuitm;
-
-import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
-
-simple EmergencyAppl extends DemoBaseApplLayer
-{
-
-    parameters:
-        @class(qdp_veins::EmergencyAppl);
-        string appName = default("Emergency application layer");
-
-        //override some params
-        beaconInterval = 1s @unit(s);
-}
+//
