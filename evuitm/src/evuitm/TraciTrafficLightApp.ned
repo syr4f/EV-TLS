@@ -13,3 +13,24 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 package org.car2x.veins.subprojects.evuitm;
+
+import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+import org.car2x.veins.base.modules.ITrafficLightApplLayer;
+
+//
+// Queue discharge-based traffic light signal preemption application layer.
+//
+simple TraciTrafficLightApp extends DemoBaseApplLayer like ITrafficLightApplLayer
+{
+    parameters:
+        @class(evuitm::TraciTrafficLightApp);
+        @display("i=block/app2");
+        double firstStepAt @unit(s) = default(20000s); // to allow setting to the same value as *.manager.firstStepAt
+        string approachRoadID = default("");  // SUMO edge ID from where will the emergency vehicle approach
+        string approachDetIDs = default("");
+        string approachIndices = default("");
+        sendBeacons = false;
+    	
+    gates:
+        inout logic;
+}

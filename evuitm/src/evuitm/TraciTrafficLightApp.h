@@ -13,10 +13,71 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef EVUITM_TRACITRAFFICLIGHTAPP_H_
-#define EVUITM_TRACITRAFFICLIGHTAPP_H_
+#pragma once
 
-class TraciTrafficLightApp {
+#include "evuitm/evuitm.h"
+#include <algorithm>
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+#include "veins/modules/world/traci/trafficLight/TraCITrafficLightInterface.h"
+#include "veins/modules/mobility/traci/TraCICommandInterface.h"
+#include "veins/modules/utility/TimerManager.h"
+#include "evuitm/TrafficLightBeacon_m.h"
+#include "evuitm/TraciAlgorithm.h"
+
+namespace evuitm {
+
+class EVUITM_API TraciTrafficLightApp : public veins::DemoBaseApplLayer {
+
+
+public:
+    void initialize(int stage) override;
+    void finish() override;
+
+protected:
+    //Note: onWSM, onWSA not implemented
+    /** @brief this function is called upon receiving a BasicSafetyMessage, also referred to as a beacon  */
+    void onBSM(veins::DemoSafetyMessage* bsm) override;
+    void handleSelfMsg(cMessage* msg) override;
+
+private:
+    /* Connection to QdpTrafficLightLogic */
+    void instructLogicToStartPreemptionIn(double);
+    void instructLogicToStopPreemption();
+    TrafficLightBeacon* generateApplToLogicMsg(simtime_t, int);
+
+    /* helper methods */
+    bool isEvWayCurrentlyGreen();
+    double getNewTG();
+    double getActualPhaseTime();
+    int getNumOfVehiclesFromDetectors();
+    double computeDistanceToTraffiLightDownstream(veins::Coord);
+    std::vector<int> initIndicesEvWay();
+
+    /* interfacing */
+    veins::TraCITrafficLightInterface* tlInterfaceAccess;
+    veins::TraCICommandInterface* traci;
+    veins::TimerManager timerManager {this};  // for updating the NumVehicles periodically
+
+    /* values controlling App decision */
+    std::string tl_id;
+    std::string road_id;
+    std::vector<std::string> e2_ids;
+    veins::Coord tl_position;
+    bool did_change;
+    bool emveh_is_very_near;
+    std::vector<int> tl_indices_ev_way;
+
+    /* constant values controlling App decision */
+    const double dist_close = 25.0;         // downstream distance to TL after which EV requests would not be processed [m]
+    const double dist_away = 40.0;          // upstream distance from TL after which preemption stops [m]
+
+    /* algorithm parameters - updated periodically */
+    double TG;                              // GreenTime, value to be added to computed timeToStartPreemption [s]
+    int NUM_VEHICLES;                       // max num of vehicles on given indices of given edge_id [-]
+
+
 };
 
-#endif /* EVUITM_TRACITRAFFICLIGHTAPP_H_ */
+} // namespace evuitm
+
+
