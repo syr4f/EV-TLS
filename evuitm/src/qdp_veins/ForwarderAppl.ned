@@ -11,18 +11,16 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
-cplusplus {{
-#include "veins/modules/messages/DemoSafetyMessage_m.h"
-}}
+// 
 
-namespace veins;
-class DemoSafetyMessage;
+package org.car2x.veins.subprojects.qdp_veins;
 
-//
-// Extension of DemoSafetyMessage to have hopCount for forwarding.
-// DemoSafetyMessage contains position and speed
-//
-packet EmergBeacon extends DemoSafetyMessage {
-    int hopCount = 2;
+import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+
+simple ForwarderAppl extends DemoBaseApplLayer
+{
+    parameters:
+        @class(qdp_veins::ForwarderAppl);
+        string appName = default("Forwarder Application");
+		sendBeacons = false;
 }

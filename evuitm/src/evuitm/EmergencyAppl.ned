@@ -11,18 +11,19 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
-cplusplus {{
-#include "veins/modules/messages/DemoSafetyMessage_m.h"
-}}
+// 
 
-namespace veins;
-class DemoSafetyMessage;
+package org.car2x.veins.subprojects.evuitm;
 
-//
-// Extension of DemoSafetyMessage to have hopCount for forwarding.
-// DemoSafetyMessage contains position and speed
-//
-packet EmergBeacon extends DemoSafetyMessage {
-    int hopCount = 2;
+import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
+
+simple EmergencyAppl extends DemoBaseApplLayer
+{
+
+    parameters:
+        @class(qdp_veins::EmergencyAppl);
+        string appName = default("Emergency application layer");
+
+        //override some params
+        beaconInterval = 1s @unit(s);
 }

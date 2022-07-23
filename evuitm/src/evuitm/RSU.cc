@@ -27,10 +27,10 @@ void RSU::onWSM(BaseFrame1609_4* frame) {
     EV << "RSU Receive Beacon From EVs 1\n";
 
     if (EmergBeacon* wsm = check_and_cast<EmergBeacon*>(frame)){
-        std:: string laneId = wsm->getAtLanes();
+        //std:: string laneId = wsm->getAtLanes();
         EV << "RSU Receive Beacon From EVs 2\n";
 
-                     if(laneId == "persiarankayangannorth#2_0" || laneId == "persiarankayangannorth#2_1" || laneId == "persiarankayangannorth#1_1" || laneId == "persiarankayangannorth#1_0"){
+                    /* if(laneId == "persiarankayangannorth#2_0" || laneId == "persiarankayangannorth#2_1" || laneId == "persiarankayangannorth#1_1" || laneId == "persiarankayangannorth#1_0"){
                           //EVs at north lanes
                           traci->trafficlight("cluster_144084639_252529291_255540900_6503456532").setPhaseIndex(0);
                           EV << "Emergency Vehicle is at Jalan Persiaran Kayangan\n";
@@ -50,7 +50,7 @@ void RSU::onWSM(BaseFrame1609_4* frame) {
                           traci->trafficlight("cluster_144084639_252529291_255540900_6503456532").setPhaseIndex(3);
                           EV << "Emergency Vehicle is at Jalan Pintar\n";
                       }
-
+*/
 
     }
 

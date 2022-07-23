@@ -63,7 +63,7 @@ void EmergVehApp::onWSA(DemoServiceAdvertisment* wsa)
     // code for handling the message goes here, see TraciDemo11p.cc for examples
     EV << "EmergVehApp onWSA\n";
 }
-
+/*
 void EmergVehApp::handleSelfMsg(cMessage* msg)
 {
     if (EmergBeacon* wsm = dynamic_cast<EmergBeacon*>(msg)) {
@@ -106,4 +106,4 @@ void EmergVehApp::handlePositionUpdate(cObject* obj)
     }
 
 
-}
+} */

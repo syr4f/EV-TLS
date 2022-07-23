@@ -11,18 +11,20 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
-cplusplus {{
-#include "veins/modules/messages/DemoSafetyMessage_m.h"
-}}
+// 
 
-namespace veins;
-class DemoSafetyMessage;
+package org.car2x.veins.subprojects.qdp_veins;
+import org.car2x.veins.base.modules.ITrafficLightLogic;
 
 //
-// Extension of DemoSafetyMessage to have hopCount for forwarding.
-// DemoSafetyMessage contains position and speed
+// Queue discharge-based traffic light signal preemption logic module.
 //
-packet EmergBeacon extends DemoSafetyMessage {
-    int hopCount = 2;
+simple QdpTrafficLightLogic like ITrafficLightLogic
+{
+   	parameters:
+        @class(qdp_veins::QdpTrafficLightLogic);
+        @display("i=block/classifier");
+    gates:
+        inout interface;
+        inout applLayer;
 }

@@ -11,18 +11,23 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
+// 
+
 cplusplus {{
-#include "veins/modules/messages/DemoSafetyMessage_m.h"
+#include <vector>
+typedef std::vector<int> IntVector;
 }}
 
-namespace veins;
-class DemoSafetyMessage;
+class noncobject IntVector;
 
-//
-// Extension of DemoSafetyMessage to have hopCount for forwarding.
-// DemoSafetyMessage contains position and speed
-//
-packet EmergBeacon extends DemoSafetyMessage {
-    int hopCount = 2;
+enum QdpApplToLogicMsgType{
+    START_PREEMPTION = 0;
+    STOP_PREEMPTION = 1;
+};
+
+packet QdpTrafficLightApplToLogicMsg {
+    string tlId;
+    int applRequestType @enum(QdpApplToLogicMsgType);
+    simtime_t timeToStartPref;
+    IntVector indices;  // indices of controlled lanes from where EV will arrive
 }

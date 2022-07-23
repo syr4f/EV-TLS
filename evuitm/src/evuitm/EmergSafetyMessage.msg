@@ -11,7 +11,8 @@
 // 
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
-//
+// 
+
 cplusplus {{
 #include "veins/modules/messages/DemoSafetyMessage_m.h"
 }}
@@ -23,6 +24,6 @@ class DemoSafetyMessage;
 // Extension of DemoSafetyMessage to have hopCount for forwarding.
 // DemoSafetyMessage contains position and speed
 //
-packet EmergBeacon extends DemoSafetyMessage {
+packet EmergSafetyMessage extends DemoSafetyMessage {
     int hopCount = 2;
 }
