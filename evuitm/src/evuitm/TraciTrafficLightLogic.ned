@@ -13,3 +13,15 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
 package org.car2x.veins.subprojects.evuitm;
+import org.car2x.veins.base.modules.ITrafficLightLogic;
+
+
+simple TraciTrafficLightLogic like ITrafficLightLogic
+{
+   	parameters:
+        @class(evuitm::TraciTrafficLightLogic);
+        @display("i=block/classifier");
+    gates:
+        inout interface;
+        inout applLayer;
+}
