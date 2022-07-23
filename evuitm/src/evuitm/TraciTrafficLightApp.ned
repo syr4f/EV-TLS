@@ -17,9 +17,6 @@ package org.car2x.veins.subprojects.evuitm;
 import org.car2x.veins.modules.application.ieee80211p.DemoBaseApplLayer;
 import org.car2x.veins.base.modules.ITrafficLightApplLayer;
 
-//
-// Queue discharge-based traffic light signal preemption application layer.
-//
 simple TraciTrafficLightApp extends DemoBaseApplLayer like ITrafficLightApplLayer
 {
     parameters:
