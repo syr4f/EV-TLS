@@ -13,10 +13,21 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef EVUITM_TRACIRSU_H_
-#define EVUITM_TRACIRSU_H_
+#pragma once
 
-class TraciRSU {
+#include "evuitm/evuitm.h"
+
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+
+namespace evuitm {
+
+class EVUITM_API TraciRSU : public veins::DemoBaseApplLayer {
+
+protected:
+    void onBSM(veins::DemoSafetyMessage* bsm) override;
+    void onWSM(veins::BaseFrame1609_4* wsm) override;
+    void onWSA(veins::DemoServiceAdvertisment* wsa) override;
+
 };
 
-#endif /* EVUITM_TRACIRSU_H_ */
+}

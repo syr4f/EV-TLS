@@ -13,5 +13,26 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#include "TraciRSU.h"
+#include "evuitm/TraciRSU.h"
+#include "evuitm/EmergBeacon_m.h"
 
+using namespace veins;
+using namespace evuitm;
+
+Define_Module(evuitm::TraciRSU);
+
+void TraciRSU::onBSM(DemoSafetyMessage* bsm) {
+    // decrement hopCount and re-send if hopCount >= 0
+    findHost()->getDisplayString().setTagArg("i", 1, "green");
+    if (EmergBeacon* msg = dynamic_cast<EmergBeacon*>(bsm)){
+        msg->setHopCount(msg->getHopCount()-1);
+        if (msg->getHopCount() >= 0)
+            sendDelayedDown(msg->dup(), uniform(0.01, 0.2));
+    }
+}
+
+void TraciRSU::onWSM(BaseFrame1609_4* wsm) {
+}
+
+void TraciRSU::onWSA(DemoServiceAdvertisment* wsa) {
+}
