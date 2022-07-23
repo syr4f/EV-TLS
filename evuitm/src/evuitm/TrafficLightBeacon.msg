@@ -12,3 +12,21 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 //
+cplusplus {{
+#include <vector>
+typedef std::vector<int> IntVector;
+}}
+
+class noncobject IntVector;
+
+enum QdpApplToLogicMsgType{
+    START_PREEMPTION = 0;
+    STOP_PREEMPTION = 1;
+};
+
+packet TrafficLightBeacon {
+    string tlId;
+    int applRequestType @enum(QdpApplToLogicMsgType);
+    simtime_t timeToStartPref;
+    IntVector indices;  // indices of controlled lanes from where EV will arrive
+}
