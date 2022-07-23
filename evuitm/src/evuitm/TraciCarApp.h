@@ -12,11 +12,33 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
+#pragma once
 
-#ifndef EVUITM_TRACICARAPP_H_
-#define EVUITM_TRACICARAPP_H_
+#include "evuitm/evuitm.h"
 
-class TraciCarApp {
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+
+
+namespace evuitm {
+
+class EVUITM_API TraciCarApp : public veins::DemoBaseApplLayer {
+public:
+    void initialize(int stage) override;
+    void finish() override;
+
+protected:
+    simtime_t lastDroveAt;
+    bool sentMessage;
+    int currentSubscribedServiceId;
+
+protected:
+    void onBSM(veins::DemoSafetyMessage* bsm) override;
+    void onWSM(veins::BaseFrame1609_4* wsm) override;
+    void onWSA(veins::DemoServiceAdvertisment* wsa) override;
+
+    void handleSelfMsg(cMessage* msg) override;
+    void handlePositionUpdate(cObject* obj) override;
 };
 
-#endif /* EVUITM_TRACICARAPP_H_ */
+} // namespace evuitm
+

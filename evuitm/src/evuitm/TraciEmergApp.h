@@ -13,10 +13,32 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-#ifndef EVUITM_TRACIEMERGAPP_H_
-#define EVUITM_TRACIEMERGAPP_H_
+#pragma once
 
-class TraciEmergApp {
+#include "evuitm/evuitm.h"
+
+#include "veins/modules/application/ieee80211p/DemoBaseApplLayer.h"
+
+using namespace omnetpp;
+
+namespace evuitm{
+class EVUITM_API TraciEmergApp : public veins::DemoBaseApplLayer
+{
+public:
+    void initialize(int stage) override;
+    void finish() override;
+
+protected:
+    void onBSM(veins::DemoSafetyMessage* bsm) override;
+    void onWSM(veins::BaseFrame1609_4* wsm) override;
+    void onWSA(veins::DemoServiceAdvertisment* wsa) override;
+
+    void handleSelfMsg(cMessage* msg) override;
+    void handlePositionUpdate(cObject* obj) override;
+
+private:
+    veins::TraCIMobility* mobility;
+    veins::TraCICommandInterface* traci;
 };
 
-#endif /* EVUITM_TRACIEMERGAPP_H_ */
+}

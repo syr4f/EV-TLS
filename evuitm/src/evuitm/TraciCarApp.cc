@@ -12,6 +12,59 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
+#include "evuitm/TraciCarApp.h"
 
-#include "TraciCarApp.h"
+using namespace veins;
+using namespace evuitm;
+
+Define_Module(evuitm::TraciCarApp);
+
+void TraciCarApp::initialize(int stage)
+{
+    DemoBaseApplLayer::initialize(stage);
+    if (stage == 0) {
+        sentMessage = false;
+        lastDroveAt = simTime();
+        currentSubscribedServiceId = -1;
+    }
+}
+
+void TraciCarApp::finish()
+{
+    DemoBaseApplLayer::finish();
+    // statistics recording goes here
+}
+
+void TraciCarApp::onBSM(DemoSafetyMessage* bsm)
+{
+    // Your application has received a beacon message from another car or RSU
+    // code for handling the message goes here
+}
+
+void TraciCarApp::onWSM(BaseFrame1609_4* wsm)
+{
+    // Your application has received a data message from another car or RSU
+    // code for handling the message goes here, see TraciDemo11p.cc for examples
+}
+
+void TraciCarApp::onWSA(DemoServiceAdvertisment* wsa)
+{
+    // Your application has received a service advertisement from another car or RSU
+    // code for handling the message goes here, see TraciDemo11p.cc for examples
+}
+
+void TraciCarApp::handleSelfMsg(cMessage* msg)
+{
+    DemoBaseApplLayer::handleSelfMsg(msg);
+    // this method is for self messages (mostly timers)
+    // it is important to call the DemoBaseApplLayer function for BSM and WSM transmission
+}
+
+void TraciCarApp::handlePositionUpdate(cObject* obj)
+{
+    DemoBaseApplLayer::handlePositionUpdate(obj);
+    // the vehicle has moved. Code that reacts to new positions goes here.
+    // member variables such as currentPosition and currentSpeed are updated in the parent class
+}
+
 
